@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    ports:
+      - 8501:8501
+    environment:
+      DB_URL: jdbc:postgresql://db/test_db
+      
+  db:
+    image: postgres:latest
+    ports:
+      - 5436:5436
+    volumes:
+      - streamlit:/data/db
+
+volumes:
+  streamlit:
+
+
